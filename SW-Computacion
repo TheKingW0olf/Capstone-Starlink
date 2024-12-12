@@ -1,0 +1,296 @@
+SW-Computacion#show run
+Building configuration...
+
+Current configuration : 7790 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-Computacion
+!
+enable secret 5 $1$mERr$RldxcCZEZsTFTETUyRaA50
+!
+!
+!
+ip ssh version 1
+ip domain-name cmiraflores.cl
+!
+username adminicmiraflores secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree portfast default
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0001.C906.2C12
+!
+interface FastEthernet0/2
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/3
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/4
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/5
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/6
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/7
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/8
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/9
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/10
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/11
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/12
+ description Conexin hacia Computadoras
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/13
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/14
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/15
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/16
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/17
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/18
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/19
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/20
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/21
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/22
+ description Conexin hacia Computadoras Administrativas
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ shutdown
+!
+interface FastEthernet0/23
+ description Conexin troncal hacia SW-SalaProfesores
+ switchport trunk allowed vlan 10,20,30,40
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ description Conexin troncal hacia MLS-1SUR
+ switchport trunk allowed vlan 10,20,30,40
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ switchport access vlan 30
+ spanning-tree cost 4
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+banner motd ^C
+:................................
+:'##::::::::'######:::'##::::'##:
+: ##:::::::'##... ##:: ###::'###:
+: ##::::::: ##:::..::: ####'####:
+: ##::::::: ##::'####: ## ### ##:
+: ##::::::: ##::: ##:: ##. #: ##:
+: ##::::::: ##::: ##:: ##:.:: ##:
+: ########:. ######::: ##:::: ##:
+:........:::......::::..:::::..::
+^C
+!
+!
+!
+line con 0
+ password 7 0802455D0A16544541
+ login
+ exec-timeout 5 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+!
+!
+!
+end
