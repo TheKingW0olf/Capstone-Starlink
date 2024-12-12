@@ -1,0 +1,248 @@
+MLS-1SUR#show running-config 
+Building configuration...
+
+Current configuration : 4520 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname MLS-1SUR
+!
+login block-for 120 attempts 3 within 60
+!
+enable secret 5 $1$mERr$RldxcCZEZsTFTETUyRaA50
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username adminicmiraflores privilege 15 secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name cmiraflores.cl
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree vlan 10,20,30,40 priority 4096
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ spanning-tree cost 10
+ shutdown
+!
+interface FastEthernet0/2
+ shutdown
+!
+interface FastEthernet0/3
+ shutdown
+!
+interface FastEthernet0/4
+ shutdown
+!
+interface FastEthernet0/5
+ shutdown
+!
+interface FastEthernet0/6
+ shutdown
+!
+interface FastEthernet0/7
+ shutdown
+!
+interface FastEthernet0/8
+ shutdown
+!
+interface FastEthernet0/9
+ shutdown
+!
+interface FastEthernet0/10
+ shutdown
+!
+interface FastEthernet0/11
+ shutdown
+!
+interface FastEthernet0/12
+ shutdown
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ shutdown
+!
+interface FastEthernet0/18
+ shutdown
+!
+interface FastEthernet0/19
+ shutdown
+!
+interface FastEthernet0/20
+ description Enlace troncal hacia Switch de Acceso
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/21
+ description Enlace troncal hacia Switch de Acceso
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/22
+ description EtherChannel hacia MLS-2
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/23
+ description EtherChannel hacia MLS-2
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/24
+ description EtherChannel hacia MLS-2
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/1
+ no switchport
+ ip address 172.16.220.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no switchport
+ ip address 172.16.100.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 0090.2b83.9301
+ ip address 192.168.10.1 255.255.255.0
+ ip helper-address 192.168.10.100
+ standby 10 ip 192.168.10.254
+ standby 10 priority 110
+ standby 10 preempt
+!
+interface Vlan20
+ mac-address 0090.2b83.9302
+ ip address 192.168.20.1 255.255.255.0
+ ip helper-address 192.168.10.100
+ standby 20 ip 192.168.20.254
+ standby 20 priority 110
+ standby 20 preempt
+!
+interface Vlan30
+ mac-address 0090.2b83.9303
+ ip address 192.168.30.1 255.255.255.0
+ ip helper-address 192.168.10.100
+ standby 30 ip 192.168.30.254
+ standby 30 priority 110
+ standby 30 preempt
+!
+interface Vlan40
+ mac-address 0090.2b83.9304
+ ip address 192.168.40.1 255.255.255.0
+ ip helper-address 192.168.10.100
+ standby 40 ip 192.168.40.254
+ standby 40 priority 110
+ standby 40 preempt
+!
+router ospf 1
+ router-id 2.2.2.2
+ log-adjacency-changes
+ passive-interface FastEthernet0/20
+ passive-interface FastEthernet0/21
+ passive-interface FastEthernet0/22
+ passive-interface FastEthernet0/23
+ passive-interface FastEthernet0/24
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+ network 192.168.30.0 0.0.0.255 area 0
+ network 192.168.40.0 0.0.0.255 area 0
+ network 172.16.100.0 0.0.0.3 area 0
+ network 172.16.220.0 0.0.0.3 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list extended sl_def_acl
+ deny tcp any any eq telnet
+ deny tcp any any eq www
+ deny tcp any any eq 22
+ permit tcp any any eq 22
+!
+banner motd ^C
+:................................
+:'##::::::::'######:::'##::::'##:
+: ##:::::::'##... ##:: ###::'###:
+: ##::::::: ##:::..::: ####'####:
+: ##::::::: ##::'####: ## ### ##:
+: ##::::::: ##::: ##:: ##. #: ##:
+: ##::::::: ##::: ##:: ##:.:: ##:
+: ########:. ######::: ##:::: ##:
+:........:::......::::..:::::..::
+^C
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 5 0
+ password 7 0802455D0A16544541
+ login
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
